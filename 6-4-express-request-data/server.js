@@ -129,6 +129,10 @@ import express from "express";
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Server is up");
+});
+
 app.get("/echo", (req, res) => {
   const { name, age } = req.query;
 
