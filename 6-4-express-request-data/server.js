@@ -147,6 +147,15 @@ app.get("/echo", (req, res) => {
   });
 });
 
+app.get("/profile/:first/:last", (req, res) => {
+  const { first, last } = req.params;
+
+  res.json({
+    ok: true,
+    fullName: `${first} ${last}`,
+  });
+});
+
 app.listen(3000, () => {
   console.log("API running at http://localhost:3000");
 });
