@@ -129,7 +129,6 @@ import express from "express";
 
 const app = express();
 
-// /echo
 app.get("/echo", (req, res) => {
   const { name, age } = req.query;
 
@@ -148,7 +147,6 @@ app.get("/echo", (req, res) => {
   });
 });
 
-// /profile
 app.get("/profile/:first/:last", (req, res) => {
   const { first, last } = req.params;
 
@@ -172,7 +170,13 @@ app.param("userId", (req, res, next, userId) => {
   next();
 });
 
-// server start
+app.get("/users/:userId", (req, res) => {
+  res.json({
+    ok: true,
+    userId: req.userIdNum,
+  });
+});
+
 app.listen(3000, () => {
   console.log("API running at http://localhost:3000");
 });
